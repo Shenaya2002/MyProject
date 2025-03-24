@@ -52,3 +52,47 @@ while True:
     else:
         print("\nExecuting: invalid choice handler")
         print("Invalid choice! Please try again.")
+
+
+def transfer(balance, amount):
+    """Transfers money to another account if there are sufficient funds."""
+    print("\nExecuting: transfer()")
+    if 0 < amount <= balance:
+        balance -= amount
+        print(f"${amount:.2f} transferred successfully!")
+    else:
+        print("Insufficient funds or invalid amount.")
+    return balance
+
+# Main program (adding the new option in the menu)
+while True:
+    print("\nSimple Banking System")
+    print("1. Check Balance")
+    print("2. Deposit Money")
+    print("3. Withdraw Money")
+    print("4. Transfer Money")  # New option added
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    print("\nExecuting: main program loop")  # Print current execution step
+
+    if choice == "1":
+        check_balance(balance)
+    elif choice == "2":
+        amount = float(input("Enter deposit amount: "))
+        balance = deposit(balance, amount)
+    elif choice == "3":
+        amount = float(input("Enter withdrawal amount: "))
+        balance = withdraw(balance, amount)
+    elif choice == "4":
+        amount = float(input("Enter transfer amount: "))
+        balance = transfer(balance, amount)
+    elif choice == "5":
+        print("\nExecuting: exit program")
+        print("Thank you for using our banking system!")
+        break
+    else:
+        print("\nExecuting: invalid choice handler")
+        print("Invalid choice! Please try again.")
+
