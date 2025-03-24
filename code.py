@@ -12,3 +12,13 @@ def deposit(balance, amount):
     else:
         print("Deposit amount must be greater than zero.")
     return balance
+
+def withdraw(balance, amount):
+    """Withdraws money from the account if there are sufficient funds."""
+    print("\nExecuting: withdraw()")
+    if 0 < amount <= balance:
+        balance -= amount
+        print(f"${amount:.2f} withdrawn successfully!")
+    else:
+        print("Insufficient funds or invalid amount.")
+    return balance
